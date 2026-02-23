@@ -1,0 +1,128 @@
+:root {
+    --bg-color: #ffffff;
+    --text-main: #000000;
+    --text-secondary: #a0a0a0;
+    --clock-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.15);
+}
+
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-main: #ffffff;
+    --text-secondary: #666666;
+    --clock-bg: #1e1e1e;
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: background-color 0.4s ease;
+}
+
+#theme-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-bottom: 60px;
+    transition: 0.3s;
+}
+
+[data-theme="dark"] #theme-btn {
+    background-color: #fff;
+    color: #000;
+}
+
+.widget {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.analog-clock {
+    width: 160px;
+    height: 160px;
+    background: var(--clock-bg);
+    border-radius: 40px;
+    box-shadow: 0 15px 35px var(--shadow);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    border-radius: 10px;
+    background: var(--text-main);
+    transform: translateX(-50%);
+}
+
+.hour { width: 4px; height: 35px; z-index: 3; }
+.minute { width: 3px; height: 55px; z-index: 2; }
+.second { 
+    width: 2px; height: 65px; 
+    background: #ff3b30; 
+    z-index: 4; 
+}
+
+.center-dot {
+    width: 6px;
+    height: 6px;
+    background: #ff3b30;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+
+.digital-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.time-display {
+    font-size: 72px;
+    font-weight: 400;
+    color: var(--text-main);
+    letter-spacing: -2px;
+}
+
+.date-display {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.day-badge {
+    background: #1c1c1e;
+    color: white;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: bold;
+}
